@@ -1,33 +1,55 @@
-<!-- insert_after '.panel.currency' -->
-<div class="panel panel-default currencies">
-  <div class="panel-heading">
-    <h1 class="panel-title"><%= Spree.t(:currencies) %></h1>
+<!-- insert_after '.card.currency' -->
+<div class="card currencies mb-3">
+  <div class="card-header">
+    <h1 class="card-title h5 mb-0">
+      <%= Spree.t(:currencies) %>
+    </h1>
   </div>
 
-  <div class="panel-body">
+  <div class="card-body">
     <div class="form-group">
-      <label><%= Spree.t('supported_currencies.short') %></label>
-      <input type="text" class="form-control" value="<%= Spree::Config.supported_currencies %>" name="supported_currencies"/>
-      <p class="help-block"><%= Spree.t('supported_currencies.long') %></p>
+      <label>
+        <%= Spree.t('supported_currencies.short') %>
+      </label>
+      <input type="text" class="form-control"
+        value="<%= Spree::Config.supported_currencies %>"
+        name="supported_currencies" />
+      <small class="help-block form-text text-muted">
+        <%= Spree.t('supported_currencies.long') %>
+      </small>
     </div>
 
     <div class="form-group">
-      <div class="checkbox">
-        <label>
-          <%= check_box_tag(:allow_currency_change, 1, Spree::Config.allow_currency_change) %>
+      <div class="checkbox form-check">
+        <%= check_box_tag(
+          :allow_currency_change,
+          1,
+          Spree::Config.allow_currency_change,
+          class: 'form-check-input'
+        ) %>
+        <label class="form-check-label" for="allow_currency_change">
           <%= Spree.t('allow_currency_change.short') %>
         </label>
-        <p class="help-block"><%= Spree.t('allow_currency_change.long') %></p>
+        <small class="help-block form-text text-muted">
+          <%= Spree.t('allow_currency_change.long') %>
+        </small>
       </div>
     </div>
 
     <div class="form-group">
-      <div class="checkbox">
-        <label>
-          <%= check_box_tag(:show_currency_selector, 1, Spree::Config.show_currency_selector) %>
+      <div class="checkbox form-check">
+        <%= check_box_tag(
+          :show_currency_selector,
+          1,
+          Spree::Config.show_currency_selector,
+          class: 'form-check-input'
+        ) %>
+        <label class="form-check-label" for="show_currency_selector">
           <%= Spree.t('show_currency_selector.short') %>
         </label>
-        <p class="help-block"><%= Spree.t('show_currency_selector.long_html') %></p>
+        <small class="help-block form-text text-muted">
+          <%= Spree.t('show_currency_selector.long_html') %>
+        </small>
       </div>
     </div>
   </div>
