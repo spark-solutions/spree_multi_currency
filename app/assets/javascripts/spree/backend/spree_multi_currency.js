@@ -3,9 +3,9 @@
 $(document).ready(function(){
   $.expr[':'].Contains = function(a,i,m){
     return (a.textContent || a.innerText || '').toUpperCase()
-    																					 .indexOf(
-    																					 		m[3].toUpperCase()
-    																					 	) >= 0;
+                                               .indexOf(
+                                                   m[3].toUpperCase()
+                                                 ) >= 0;
   };
 
 
@@ -16,14 +16,14 @@ $(document).ready(function(){
       .change( function () {
         var filter = $(this).val();
         if(filter) {
-          $(list).find('.panel-title:not(:Contains(' + filter + '))')
-          			 .parent().parent().parent()
-          			 .hide();
-          $(list).find('.panel-title:Contains(' + filter + ')')
-          			 .parent().parent().parent()
-          			 .show();
+          $(list).find('.card-title:not(:Contains(' + filter + '))')
+                 .parent().parent().parent()
+                 .hide();
+          $(list).find('.card-title:Contains(' + filter + ')')
+                 .parent().parent().parent()
+                 .show();
         } else {
-          $(list).find('.panel').parent().show();
+          $(list).find('.card').parent().show();
         }
         return false;
       })
